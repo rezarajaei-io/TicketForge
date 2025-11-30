@@ -1,6 +1,0 @@
-@TicketForge.ReservationService_HostAddress = http://localhost:5264
-
-GET {{TicketForge.ReservationService_HostAddress}}/weatherforecast/
-Accept: application/json
-
-###
