@@ -1,0 +1,22 @@
+syntax = "proto3";
+
+option csharp_namespace = "AuthService.API.Protos";
+
+package auth;
+
+service AuthGrpc {
+  rpc Register (RegisterRequest) returns (RegisterResponse) {
+  }
+}
+
+message RegisterRequest {
+  string username = 1;
+  string email = 2;
+  string password = 3;
+}
+
+message RegisterResponse {
+  string userId = 1;
+  bool success = 2;
+  string message = 3;
+}
