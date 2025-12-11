@@ -1,0 +1,30 @@
+﻿syntax = "proto3";
+
+option csharp_namespace = "Catalog.Api.Grpc";
+
+package catalog;
+
+// تعریف سرویس کاتالوگ
+service CatalogService {
+  // یک متد برای دریافت تمام رویدادها
+  rpc GetAllEvents (GetAllEventsRequest) returns (GetAllEventsResponse);
+}
+
+// درخواست برای دریافت تمام رویدادها (می‌تواند خالی باشد)
+message GetAllEventsRequest {
+}
+
+// پاسخ شامل لیستی از رویدادها
+message GetAllEventsResponse {
+    repeated EventMessage events = 1;
+}
+
+// پیام برای نمایش اطلاعات یک رویداد
+message EventMessage {
+    string id = 1;
+    string name = 2;
+    string description = 3;
+    string eventDate = 4; // تاریخ را به صورت رشته می‌فرستیم
+    string venue = 5;
+    int32 availableTickets = 6;
+}
