@@ -1,0 +1,23 @@
+syntax = "proto3";
+
+option csharp_namespace = "ReservationService.API";
+
+package reservation;
+
+// The reservation service definition.
+service Reservationer {
+  // Creates a new reservation
+  rpc CreateReservation (CreateReservationRequest) returns (CreateReservationResponse);
+}
+
+// The request message containing the reservation's details.
+message CreateReservationRequest {
+  string user_id = 1;
+  string event_id = 2;
+  int32 quantity = 3;
+}
+
+// The response message containing the ID of the created reservation.
+message CreateReservationResponse {
+  string reservation_id = 1;
+}
